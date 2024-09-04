@@ -187,23 +187,23 @@ Agile methods build on the iterative approach, but focus on **human-centric** id
 
 How does all this relate to the module.  The learning outcomes are:
 
-1. Demonstrate understanding of a modern software development lifecycle.
-2. Explain the different techniques supporting modern software engineering methods.
-3. Define and analyse systems requirements and needs and specify a system design to deliver these requirements.
-4. Apply modern software engineering methods and techniques to a software development project.
-5. Explain the role of a computing professional in relation to social, ethical and legal issues surrounding projects.
-6. Consider information security requirements in the development and delivery of software.
+- LO1: Demonstrate best practice in modern DevOps scenarios.
+- LO2: Evaluate DevOps principles to ensure effective software delivery.
+- LO3: Execute a DevOps process to deliver a software product.
+- LO4: Simulate modern real-world software delivery using DevOps tools.
+- LO5: Evaluate security and professional requirements of software development.
+
+
 
 Our assessment strategy is:
 
-| Learning Outcome | Assessment |
-| ---------------- | ---------- |
-| Demonstrate understanding of a modern software development lifecycle | Coursework |
-| Explain the different techniques supporting modern software engineering methods | Unit Tests |
-| Define and analyse systems requirements and needs and specify a system design to deliver these requirements | Coursework |
-| Apply modern software engineering methods and techniques to a software development project | Coursework |
-| Explain the role of a computing professional in relation to social, ethical and legal issues surrounding projects | Unit Tests
-| Consider information security requirements in the development and delivery of software | Unit Tests |
+| Learning Outcome                                             | Assessment              |
+| ------------------------------------------------------------ | ----------------------- |
+| LO1: Demonstrate best practice in modern DevOps scenarios.   | Coursework / Unit Tests |
+| LO2: Evaluate DevOps principles to ensure effective software delivery. | Coursework / Unit Tests |
+| LO3: Execute a DevOps process to deliver a software product. | Coursework              |
+| LO4: Simulate modern real-world software delivery using DevOps tools. | Coursework              |
+| LO5: Evaluate security and professional requirements of software development. | Unit Tests              |
 
 We are going to use a SDLC to deliver a software product.  Our SDLC will be agile in nature - that is our method.  For our software, we will define requirements and specify a system to deliver.  Finally, we will build a software development pipeline to automate our product delivery.  This is the coursework you will deliver.  See the [Assessment Brief](../../assessment/) for details.
 

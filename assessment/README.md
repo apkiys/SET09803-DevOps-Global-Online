@@ -4,8 +4,8 @@
 
 | | |
 | --- | --- |
-| Module number | SET08803 |
-| Module title | Software Engineering Methods |
+| Module number | SET09803 |
+| Module title | DevOps |
 | Module leader | Kevin Sim |
 | Tutor with responsibility for this Assessment. Student's first point of contact. | As above. |
 | Assessment | Project |

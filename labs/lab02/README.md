@@ -238,7 +238,7 @@ This time I will use Shields.io to create a build badge. Go to [https://shields.
 Update the `README.md` as below (keep the other badges):
 
 ```markdown
-# Software Engineering Methods
+# DevOps
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/<username>/<repository>/<action name taken from main.yml>/<branch>?style=flat-square)
 ```
 
@@ -365,8 +365,8 @@ public class App
         MongoCollection<Document> collection = database.getCollection("test");
         // Create a document to store
         Document doc = new Document("name", "Kevin Sim")
-                .append("class", "Software Engineering Methods")
-                .append("year", "2021")
+                .append("class", "DevOps")
+                .append("year", "2024")
                 .append("result", new Document("CW", 95).append("EX", 85));
         // Add document to collection
         collection.insertOne(doc);
@@ -392,7 +392,7 @@ Feb 02, 2021 11:41:28 AM com.mongodb.diagnostics.logging.JULLogger log
 INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27000, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 4, 3]}, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4243600}
 Feb 02, 2021 11:41:28 AM com.mongodb.diagnostics.logging.JULLogger log
 INFO: Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:27000
-{ "_id" : { "$oid" : "60193a68517ac5004c914c07" }, "name" : "Kevin Sim", "class" : "Software Engineering Methods", "year" : "2021", "result" : { "CW" : 95, "EX" : 85 } }
+{ "_id" : { "$oid" : "60193a68517ac5004c914c07" }, "name" : "Kevin Sim", "class" : "DevOps", "year" : "2024", "result" : { "CW" : 95, "EX" : 85 } }
 
 Process finished with exit code 0
 

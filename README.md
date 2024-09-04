@@ -1,8 +1,6 @@
-# SET08803 Software Engineering Methods
+# SET09803 DevOps Global Online
 
-**<span style="color:red">Please See Moodle for reassessment details.</span>**
-
-Welcome to the GitHub page for SET08803 Software Engineering Methods. GitHub contains all of the material for the module with the exception of the end of Unit Tests which you will find on the Moodle page.
+Welcome to the GitHub page for SET09803 DevOps Global Online. GitHub contains all of the material for the module with the exception of the end of Unit Tests which you will find on the Moodle page.
 
 Before commencing the module you should view the introduction to the module on Moodle
 
@@ -24,6 +22,6 @@ You should attempt to complete the labs individually which will give you the ski
 
 ## Copyright Notice
 
-All material provided is developed by Kevin Chalmers and modified by Kevin Sim and is &copy; 2019 Edinburgh Napier University unless otherwise stated.  Use and copying of this material is permitted under the Apache 2.0 license with suitable attribution given to the author.
+All material provided is developed by Kevin Chalmers and modified by Kevin Sim and Andreas Steyven and is © 2024 Edinburgh Napier University unless otherwise stated. Use and copying of this material is permitted under the Apache 2.0 license with suitable attribution given to the author.
 
 The author accepts no liability in the use of this material.
