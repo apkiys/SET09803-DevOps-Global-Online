@@ -21,6 +21,43 @@ After this lab you will be able to:
 - **Define** a *Dockerfile to create your own container.*
 - **Deploy** to a *Docker container from IntelliJ.*
 
+## Getting Started with GitHub
+
+The whole point of version control is to maintain your code somewhere backed-up and shareable with your team.  We will use *GitHub* as a repository for this module.  First, you will need to create an account on GitHub if you haven't already.  Go to [GitHub](https://github.com/) and **Sign Up**.  Two things to note:
+
+1. You do not need a paid for account.
+2. If you are a student, GitHub will give you [unlimited private repositories](https://education.github.com/pack).
+
+New projects are started by default on a branch called *main* but IntelliJ uses *master* by default. To change GitHub's default branch name go to [https://github.com/settings/repositories](https://github.com/settings/repositories) and change the default to *master*
+
+Now we can create a new repository. In GitHub, you will see a **+** near the top of the page, which you can select **New repository** from:
+
+![GitHub New Repository](C:/Users/KevL/Dropbox/Teaching/2024-2025-01-SET09823%20DevOps%20Global%20Online/SET09803-DevOps-Global-Online/labs/Lab01Quick/img/github-new-repo.png)
+
+This will open a new window.  You need to enter the name for the repository (`devops or whatever you like`), make sure the repository is **Public** and then select the **Apache 2.0** license type.  and add a README file. Details are illustrated below:
+
+![GitHub Repository Details](C:/Users/KevL/Dropbox/Teaching/2024-2025-01-SET09823%20DevOps%20Global%20Online/SET09803-DevOps-Global-Online/labs/Lab01Quick/img/github-repo-options.png)
+
+Click on **Create repository** and you will be presented with the following:
+
+![GitHub Repository Main Screen](C:/Users/KevL/Dropbox/Teaching/2024-2025-01-SET09823%20DevOps%20Global%20Online/SET09803-DevOps-Global-Online/labs/Lab01Quick/img/github-repo-main.png)
+
+## Git Setup
+
+Git is incorporated into IntelliJ but I find it easier to use from the command line. Download and install from https://git-scm.com/download/win
+
+Once installed you can create a new Git Command line by right clicking in a folder or on the desktop and selecting 
+
+![GitHub Command Line](C:/Users/KevL/Dropbox/Teaching/2024-2025-01-SET09823%20DevOps%20Global%20Online/SET09803-DevOps-Global-Online/labs/Lab01Quick/img/gitbash.png)
+
+
+
+From the command prompt type git clone <URL>
+
+For example ```git clone https://github.com/Kevin-Sim/devops.git```
+
+You might have to set up permissions the first time you do this but this should happen only once.
+
 ## IntelliJ Setup
 
 IntelliJ IDEA is the Integrated Development Environment that we will be using on the module. You can download IntelliJ IDEA from https://www.jetbrains.com/idea/ The community edition of IntelliJ IDEA is sufficient for this module but you can if you wish get access to the ultimate edition by signing up for a student licence at [https://www.jetbrains.com/shop/eform/students](https://www.jetbrains.com/shop/eform/students)
@@ -128,27 +165,6 @@ So to finish this stage of our set-up perform the following actions:
 1. Add a new file - `README.md` to the root directory of the project.
 2. Add some text to the readme - keep it simple at the moment.
 3. Add `README.md` to Git (**right-click** the file, **Git** then **Add**).
-
-## Getting Started with GitHub
-
-The whole point of version control is to maintain your code somewhere backed-up and shareable with your team.  We will use *GitHub* as a repository for this module.  First, you will need to create an account on GitHub if you haven't already.  Go to [GitHub](https://github.com/) and **Sign Up**.  Two things to note:
-
-1. You do not need a paid for account.
-2. If you are a student, GitHub will give you [unlimited private repositories](https://education.github.com/pack).
-
-New projects are started by default on a branch called *main* but IntelliJ uses *master* by default. To change GitHub's default branch name go to [https://github.com/settings/repositories](https://github.com/settings/repositories) and change the default to *master*
-
-Now we can create a new repository. In GitHub, you will see a **+** near the top of the page, which you can select **New repository** from:
-
-![GitHub New Repository](img/github-new-repo.png)
-
-This will open a new window.  You need to enter the name for the repository (`devops`), make sure the repository is **Public** and then select the **Apache 2.0** license type.  **Ensure that no README is added or `.gitignore`**.  You have one already.  This details are illustrated below:
-
-![GitHub Repository Details](img/github-repo-options.png)
-
-Click on **Create repository** and you will be presented with the following:
-
-![GitHub Repository Main Screen](img/github-repo-main.png)
 
 Now we need to tell IntelliJ the location of our repository.  This is the URL of the repository you created, which should be of the form `https://github.com/<user-name>/devops`.  For example, my repository covering the basics of this lab is [https://github.com/Kevin-Sim/DevOpsLabs](https://github.com/Kevin-Sim/DevOpsLabs)
 
