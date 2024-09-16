@@ -105,30 +105,30 @@ Modify the main method to use command line parameters, if supplied, or to defaul
 ```
 #### Updating `pom.xml` to Set JAR Filename
 
-At the start of the project we built a JAR file with the version number and `jar-with-dependencies` added to the name.  This has slowly become problematic with the number of files where our version number is provided.  Therefore, we will update the `pom.xml` file to produce a JAR file called `seMethods`.
+At the start of the project we built a JAR file with the version number and `jar-with-dependencies` added to the name.  This has slowly become problematic with the number of files where our version number is provided.  Therefore, we will update the `pom.xml` file to produce a JAR file called `devopsethods`.
 
-The section we have to update is in the `<build><plugins>` section for the `maven-assembly-plugin`.  The updated version is below:
+The section we have to update is in the `<build><plugins>` section for the `maven-asdevopsbly-plugin`.  The updated version is below:
 
 ```xml
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-assembly-plugin</artifactId>
+    <artifactId>maven-asdevopsbly-plugin</artifactId>
     <version>3.3.0</version>
     <configuration>
-        <finalName>seMethods</finalName>
+        <finalName>devopsethods</finalName>
         <archive>
             <manifest>
-                <mainClass>com.napier.sem.App</mainClass>
+                <mainClass>com.napier.devops.App</mainClass>
             </manifest>
         </archive>
         <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>
         </descriptorRefs>
-        <appendAssemblyId>false</appendAssemblyId>
+        <appendAsdevopsblyId>false</appendAsdevopsblyId>
     </configuration>
     <executions>
         <execution>
-            <id>make-assembly</id>
+            <id>make-asdevopsbly</id>
             <phase>package</phase>
             <goals>
                 <goal>single</goal>
@@ -138,7 +138,7 @@ The section we have to update is in the `<build><plugins>` section for the `mave
 </plugin>
 ```
 
-We have set `<finalName>` and stated we do not want the ID attached (`<appendAssemblyId>` is set to `false`).  Our Maven build will now produce a file called `seMethods.jar`.
+We have set `<finalName>` and stated we do not want the ID attached (`<appendAsdevopsblyId>` is set to `false`).  Our Maven build will now produce a file called `devopsethods.jar`.
 
 #### Updating `Dockerfile` for Application
 
@@ -146,9 +146,9 @@ Now we need to update the `Dockerfile` for the application to use the new JAR fi
 
 ```dockerfile
 FROM openjdk:latest
-COPY ./target/seMethods.jar /tmp
+COPY ./target/devopsethods.jar /tmp
 WORKDIR /tmp
-ENTRYPOINT ["java", "-jar", "seMethods.jar", "db:3306", "30000"]
+ENTRYPOINT ["java", "-jar", "devopsethods.jar", "db:3306", "30000"]
 ```
 
 
@@ -238,7 +238,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Unit Tests
-        run: mvn -Dtest=com.napier.sem.AppTest test
+        run: mvn -Dtest=com.napier.devops.AppTest test
 
   build:
     name: Build and Start Using docker-compose
@@ -273,7 +273,7 @@ Remember that Unit Tests are check the integrity of the smallest parts of our pr
 Add a new Java file to the test folder called `AppIntegrationTest.java`.  The code for the file is below.
 
 ```java
-package com.napier.sem;
+package com.napier.devops;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -334,7 +334,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Unit Tests
-        run: mvn -Dtest=com.napier.sem.AppTest test
+        run: mvn -Dtest=com.napier.devops.AppTest test
 
   IntegrationTests:
     name: Integration Tests
@@ -353,7 +353,7 @@ jobs:
         run: |
           docker build -t database ./db 
           docker run --name employees -dp 33060:3306 database
-          mvn -Dtest=com.napier.sem.AppIntegrationTest test
+          mvn -Dtest=com.napier.devops.AppIntegrationTest test
           docker stop employees
           docker rm employees
           docker image rm database                    
@@ -446,7 +446,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Unit Tests
-        run: mvn -Dtest=com.napier.sem.AppTest test
+        run: mvn -Dtest=com.napier.devops.AppTest test
 
   IntegrationTests:
     name: Integration Tests
@@ -465,7 +465,7 @@ jobs:
         run: |
           docker build -t database ./db 
           docker run --name employees -dp 33060:3306 database
-          mvn -Dtest=com.napier.sem.AppIntegrationTest test          
+          mvn -Dtest=com.napier.devops.AppIntegrationTest test          
           docker stop employees
           docker rm employees
           docker image rm database                    
@@ -509,7 +509,7 @@ The jacoco maven plugin creates html reports in the `./target/site/jacoco` folde
 ```
 
 
-Now **commit and push** these changes.  GitHub Actions should undertake the build process, and once one stage is complete you can view it at `https://codecov.io/gh/<github-username>/<repo>`.  For example, `https://codecov.io/gh/kevin-sim/sem_employees`.
+Now **commit and push** these changes.  GitHub Actions should undertake the build process, and once one stage is complete you can view it at `https://codecov.io/gh/<github-username>/<repo>`.  For example, `https://codecov.io/gh/kevin-sim/devops_employees`.
 
 ![Code Coverage Report](img/codecov-overview.png)
 

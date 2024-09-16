@@ -250,7 +250,7 @@ public static void main(String[] args)
 
 And now we are ready to test.  Remember what we have to do:
 
-1. Ensure **all** previous versions of `sem_app` are deleted - containers and images.
+1. Ensure **all** previous versions of `devops_app` are deleted - containers and images.
 2. **Compile** the project via Maven.
 3. **Package** the project via Maven.
 4. **Run** the `docker-compose` file.

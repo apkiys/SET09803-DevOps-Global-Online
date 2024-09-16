@@ -183,7 +183,7 @@ Now we need to add a **Run/Debug Configuration**.  **Select Run then Edit Config
 Modify the dialogue to match.  That is:
 
 - Use the JUnit template on the left.
-- Select `seMethods` as the classpath of module.
+- Select `devopsethods` as the classpath of module.
 - Use `MyTest` as the Class.
 
 **Click OK** and IntelliJ is now ready to run the tests.
@@ -304,7 +304,7 @@ We will create these four tests, updating our `printSalaries` code as required.
 
 ### Unit Tests for Printing Salaries
 
-First, **delete the existing test file**.  We don't want it confusing the test results.  Then **add a new package to `src/test/java` called `com.napier.sem`**.  Finally, we need to update our test configuration.  Change it to the following, where we run all tests in a package:
+First, **delete the existing test file**.  We don't want it confusing the test results.  Then **add a new package to `src/test/java` called `com.napier.devops`**.  Finally, we need to update our test configuration.  Change it to the following, where we run all tests in a package:
 
 ![IntelliJ Package Tests](img/intellij-package-tests.png)
 
@@ -313,7 +313,7 @@ First, **delete the existing test file**.  We don't want it confusing the test r
 First we will add the test to check what happens when we pass `null` to `printSalaries`.  We don't want any error to occur, so really we just want to call the method.  The test code is:
 
 ```java
-package com.napier.sem;
+package com.napier.devops;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -460,7 +460,7 @@ To enable code coverage, select **Run then Edit Configurations**.  Open the **Co
 
 ![IntelliJ Package Coverage](img/intellij-package-coverage.png)
 
-It details the percentage of classes, methods and lines covered by tests.  **Double-click `com.napier.sem`** to open a per-class view:
+It details the percentage of classes, methods and lines covered by tests.  **Double-click `com.napier.devops`** to open a per-class view:
 
 ![IntelliJ Class Coverage](img/intellij-class-coverage.png)
 
@@ -511,7 +511,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Unit Tests
-        run: mvn -Dtest=com.napier.sem.AppTest test
+        run: mvn -Dtest=com.napier.devops.AppTest test
       - name: Package and Run docker compose
         run: |
           mvn package -DskipTests
@@ -524,7 +524,7 @@ There are a few things to note here.
 
 We have added a stage called Unit Tests that runs a **specific** Test Class using the parameter 
 
-`-Dtest=com.napier.sem.AppTest` to specify the test class
+`-Dtest=com.napier.devops.AppTest` to specify the test class
 
 We have combined stages into a new stage called *Package and Run docker compose* that uses multiple run commands (The pipe **|** following the run: declaration allows multiple lines to follow)
 

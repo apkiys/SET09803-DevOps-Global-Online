@@ -45,7 +45,7 @@ We are going to modify our existing *build* stage in our GitHub Actions script s
 Let us consider the steps GitHub Actions will go through:
 
 1. It will checkout the repo as normal and setup the GitHub Actions Java environment.
-2. It will package the code to a jar with dependencies called `seMethods` skipping the maven test stage.
+2. It will package the code to a jar with dependencies called `devopsethods` skipping the maven test stage.
 3. The script uses the `"marvinpinto/action-automatic-releases@latest"` action to perform the following tasks:
     - Set the repository using the global variable `${{ secrets.GITHUB_TOKEN }}` This is automatically created by GitHub Actions
     - Set the release tag to `latest`
@@ -75,7 +75,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Unit Tests
-        run: mvn -Dtest=com.napier.sem.AppTest test
+        run: mvn -Dtest=com.napier.devops.AppTest test
       - name: CodeCov
         uses: codecov/codecov-action@v2
         with:
@@ -101,7 +101,7 @@ jobs:
         run: |
           docker build -t database ./db 
           docker run --name employees -dp 33060:3306 database
-          mvn -Dtest=com.napier.sem.AppIntegrationTest test          
+          mvn -Dtest=com.napier.devops.AppIntegrationTest test          
           docker stop employees
           docker rm employees
           docker image rm database                    
@@ -150,8 +150,8 @@ The complete Maven file is shown below for reference.
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.napier.sem</groupId>
-    <artifactId>sem_employees</artifactId>
+    <groupId>com.napier.devops</groupId>
+    <artifactId>devops_employees</artifactId>
     <version>0.1.0.3</version>
 
     <properties>
@@ -188,23 +188,23 @@ The complete Maven file is shown below for reference.
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
+                <artifactId>maven-asdevopsbly-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
-                    <finalName>seMethods</finalName>
+                    <finalName>devopsethods</finalName>
                     <archive>
                         <manifest>
-                            <mainClass>com.napier.sem.App</mainClass>
+                            <mainClass>com.napier.devops.App</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
-                    <appendAssemblyId>false</appendAssemblyId>
+                    <appendAsdevopsblyId>false</appendAsdevopsblyId>
                 </configuration>
                 <executions>
                     <execution>
-                        <id>make-assembly</id>
+                        <id>make-asdevopsbly</id>
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
@@ -253,7 +253,7 @@ The complete Maven file is shown below for reference.
 </project>
 ```
 
-Once happy with your changes merge them into master and push your changes to GitHub. Once GitHub Actions is complete if you look up your Releases you will see the new release there.  Note that `seMethods.jar` has been added.
+Once happy with your changes merge them into master and push your changes to GitHub. Once GitHub Actions is complete if you look up your Releases you will see the new release there.  Note that `devopsethods.jar` has been added.
 
 ![1](img/release.png)
 
@@ -348,10 +348,10 @@ This will produce a directory called reports with a file called `ManagerSalaries
 
 To copy the report from inside the docker container on GitHub Actions we need to add an action to our GitHub Actions yml file
 
-Add the following to the end of your yml file within the build and deploy stage. Note you will need to change the name of your container on the second line. For a project named `sem_employees` that uses docker_compose to build a container called `app`, GitHub Actions will name the container `sem_employees_app_1`
+Add the following to the end of your yml file within the build and deploy stage. Note you will need to change the name of your container on the second line. For a project named `devops_employees` that uses docker_compose to build a container called `app`, GitHub Actions will name the container `devops_employees_app_1`
 ```yml
       - name: Copy Output
-        run: docker container cp sem_employees_app_1:./tmp/reports ./
+        run: docker container cp devops_employees_app_1:./tmp/reports ./
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
@@ -386,8 +386,8 @@ First, we need Maven to treat our project as a child of a standard Spring projec
 
 ```xml
 # Existing code
-<groupId>com.napier.sem</groupId>
-<artifactId>seMethods</artifactId>
+<groupId>com.napier.devops</groupId>
+<artifactId>devopsethods</artifactId>
 <version>0.1.0.8</version>
 
 # New code
@@ -407,19 +407,19 @@ Now add the following to our `<dependencies>` section:
 </dependency>
 ```
 
-We also need to change how Maven packages our application.  Change the `<artifactId>maven-assembly-plugin</artifactId>` section in the `<plugins>` section to:
+We also need to change how Maven packages our application.  Change the `<artifactId>maven-asdevopsbly-plugin</artifactId>` section in the `<plugins>` section to:
 
 ```xml
 <plugin>
   <groupId>org.springframework.boot</groupId>
   <artifactId>spring-boot-maven-plugin</artifactId>
   <configuration>
-      <finalName>seMethods</finalName>
-      <mainClass>com.napier.sem.App</mainClass>
+      <finalName>devopsethods</finalName>
+      <mainClass>com.napier.devops.App</mainClass>
   </configuration>
   <executions>
       <execution>
-          <id>make-assembly</id>
+          <id>make-asdevopsbly</id>
           <phase>package</phase>
           <goals>
               <goal>repackage</goal>
@@ -528,7 +528,7 @@ It might be useful to start up a database container to connect to now.  This is 
 First, we need to modify the declaration of `App` to include the necessary imports and to state that the application is a Spring one.  Modify the start of `App.java` to the following:
 
 ```java
-package com.napier.sem;
+package com.napier.devops;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

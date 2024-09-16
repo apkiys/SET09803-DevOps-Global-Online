@@ -230,7 +230,7 @@ First, we need to update the `pom.xml` file to add MySQL support.  Open the file
 Now we need to update our main application to move from MongoDB to MySQL.  A MySQL server takes a bit more time to start-up, so we need to have code to attempt to connect multiple times.  The Java code below is our new application.
 
 ```java
-package com.napier.sem;
+package com.napier.devops;
 
 import java.sql.*;
 
@@ -466,7 +466,7 @@ Even this small change is a commit point through our history.  Create a new comm
 
 We are now ready to add a new method to extract the employee information.  To make life easier, we will create an `Employee` class.  To do this, perform the following steps:
 
-1. **Right-click** on the **com.sem.napier** package in the **Project** explorer in IntelliJ.
+1. **Right-click** on the **com.devops.napier** package in the **Project** explorer in IntelliJ.
 2. Select **New**, **Java Class** to open the **Create New Class** window.
 3. Call the class **Employee** and click **OK**.
 
@@ -477,7 +477,7 @@ We are now ready to add the `Employee` class.
 The `Employee` class is just data.  The full code listing is given below, and should be straightforward to understand.
 
 ```java
-package com.napier.sem;
+package com.napier.devops;
 
 /**
  * Represents an employee
@@ -646,7 +646,7 @@ Manager: null
 OK, if this didn't work, try the following first:
 
 - Make sure you have performed the following steps via Maven: **Compile** and **Package**.
-- Stop all the running containers, delete them, and delete the current `sem_db` and `sem_app` Docker images.  Then rebuild everything and restart.
+- Stop all the running containers, delete them, and delete the current `devops_db` and `devops_app` Docker images.  Then rebuild everything and restart.
 - Make sure the SQL connection string is correct and the logs from the running database and application.
 
 If this doesn't solve the problem them ask for help.

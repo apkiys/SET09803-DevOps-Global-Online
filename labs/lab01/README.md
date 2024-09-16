@@ -142,7 +142,7 @@ Now we can create a new repository. In GitHub, you will see a **+** near the top
 
 ![GitHub New Repository](img/github-new-repo.png)
 
-This will open a new window.  You need to enter the name for the repository (`sem`), make sure the repository is **Public** and then select the **Apache 2.0** license type.  **Ensure that no README is added or `.gitignore`**.  You have one already.  This details are illustrated below:
+This will open a new window.  You need to enter the name for the repository (`devops`), make sure the repository is **Public** and then select the **Apache 2.0** license type.  **Ensure that no README is added or `.gitignore`**.  You have one already.  This details are illustrated below:
 
 ![GitHub Repository Details](img/github-repo-options.png)
 
@@ -150,7 +150,7 @@ Click on **Create repository** and you will be presented with the following:
 
 ![GitHub Repository Main Screen](img/github-repo-main.png)
 
-Now we need to tell IntelliJ the location of our repository.  This is the URL of the repository you created, which should be of the form `https://github.com/<user-name>/sem`.  For example, my repository is [https://github.com/Kevin-Sim/sem](https://github.com/Kevin-Sim/sem)
+Now we need to tell IntelliJ the location of our repository.  This is the URL of the repository you created, which should be of the form `https://github.com/<user-name>/devops`.  For example, my repository is [https://github.com/Kevin-Sim/devops](https://github.com/Kevin-Sim/devops)
 
 To add the location to IntelliJ, select the  **Git** menu then and **Manage Remotes** to open the following window:
 
@@ -196,15 +196,15 @@ Click **Push** and refresh the GitHub page.  You should see your files there:
 
 We have done quite a bit so far, but we have yet to write any actual code.  The module focuses on software engineering and methods rather than programming, but it is worth testing things are working.  Let us build a simple *Hello World* example.
 
-In IntelliJ, **right-click** on the folder **seMethods->src->main->java** and select **New** then **Package** to open the **New Package** window:
+In IntelliJ, **right-click** on the folder **devopsethods->src->main->java** and select **New** then **Package** to open the **New Package** window:
 
 ![IntelliJ New Package](img/intellij-new-package.png)
 
-Call the package `com.napier.sem` and click **OK**.  Your **Project Structure** in IntelliJ should now look as follows:
+Call the package `com.napier.devops` and click **OK**.  Your **Project Structure** in IntelliJ should now look as follows:
 
 ![IntelliJ Project Package](img/intellij-project-package.png)
 
-Now **right-click** on **com.napier.sem** and select **New** and **Class** to open the **New Class** window:
+Now **right-click** on **com.napier.devops** and select **New** and **Class** to open the **New Class** window:
 
 ![IntelliJ New Class](img/intellij-new-class.png)
 
@@ -215,7 +215,7 @@ Call the class **App** and click **OK**.  IntelliJ will helpfully ask if you wan
 We will use the following code:
 
 ```java
-package com.napier.sem;
+package com.napier.devops;
 
 public class App
 {
@@ -549,7 +549,7 @@ IntelliJ should open the Docker panel at the bottom of the window:
 
 We are almost there.  It has been a long process to get to this stage, and it may seem we have not done any software development, which we haven't.  We have setup many processes which means our software development task will be easier.  Trust me!  The process might have been long in this first lab but we have made our lives substantially easier in the future.  Let us finish our process by deploying our application to a Docker image and running it.
 
-To finish our process we need to create a Dockerfile in IntelliJ.  **Right-click** on the project **seMethods** and select **New** then **File** to open the **New File** window:
+To finish our process we need to create a Dockerfile in IntelliJ.  **Right-click** on the project **devopsethods** and select **New** then **File** to open the **New File** window:
 
 ![IntelliJ New File](img/intellij-new-file.png)
 
@@ -559,14 +559,14 @@ Call the file **Dockerfile** and click **OK**.  Select **Yes** to add it to the 
 FROM openjdk:latest
 COPY ./target/classes/com /tmp/com
 WORKDIR /tmp
-ENTRYPOINT ["java", "com.napier.sem.App"]
+ENTRYPOINT ["java", "com.napier.devops.App"]
 ```
 
 We are using three new directives here:
 
 1. `COPY` will copy a file or folder from the source on the local machine to the destination in the Docker image.  Here we are copying the folder `com` from `target/classes` in the project to the folder `/tmp/com`.  The source is where IntelliJ has been building our classes.  The destination is the `/tmp` folder in the image.
 2. `WORKDIR` states where we want Docker to execute programs from in the container - the *working directory*.  This is `/tmp` - the same location we copied our classes to.
-3. `ENTRYPOINT` tells Docker what to execute when the container is created.  That is, run `java` with the class `com.napier.sem.App`.
+3. `ENTRYPOINT` tells Docker what to execute when the container is created.  That is, run `java` with the class `com.napier.devops.App`.
 
 OK, moment of truth.  On the side of the Dockerfile code you will see two green play buttons that look like run symbols.  This is the easiest way to test our Dockerfile.  
 

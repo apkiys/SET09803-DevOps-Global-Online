@@ -6,6 +6,8 @@ Before commencing the module you should view the introduction to the module on M
 
 You should attempt to complete the labs individually which will give you the skills to contribute towards your group coursework 
 
+Please note that the material has been adapted from a previous module named software engineering methods (SEM). Some of the lab material may refer to SEM and there may be hyperlinks that point to that GitHub page. If you come across any errors please let me know. Also some of the screenshots may be out of date as IntelliJ gets updated on a regular basis but it should be straightforward to adapt to newer versions.
+
 
 | Unit                                                    | Title                                                        | Lab                                                | Assessment           |
 | ------------------------------------------------------------ | ---- | -------------------- | -------------------- |
