@@ -585,7 +585,7 @@ Now add the following to our `<dependencies>` section:
 </dependency>
 ```
 
-We also need to change how Maven packages our application.  Change the `<artifactId>maven-asdevopsbly-plugin</artifactId>` section in the `<plugins>` section to:
+We also need to change how Maven packages our application.  Change the `<artifactId>maven-assembly-plugin</artifactId>` section in the `<plugins>` section to:
 
 ```xml
 <plugin>
@@ -597,7 +597,7 @@ We also need to change how Maven packages our application.  Change the `<artifac
   </configuration>
   <executions>
       <execution>
-          <id>make-asdevopsbly</id>
+          <id>make-assembly</id>
           <phase>package</phase>
           <goals>
               <goal>repackage</goal>
@@ -621,7 +621,7 @@ For reference, your `<build>` section of `pom.xml` should be:
           </configuration>
           <executions>
               <execution>
-                  <id>make-asdevopsbly</id>
+                  <id>make-assembly</id>
                   <phase>package</phase>
                   <goals>
                       <goal>repackage</goal>

@@ -24,4 +24,6 @@ hs_err_pid*
 
 .idea/
 \.vscode/
-labs/Lab01Quick/
+labs/lab01quick/
+labs/lab02quick/
+labs/lab03quick/

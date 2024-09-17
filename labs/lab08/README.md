@@ -188,7 +188,7 @@ The complete Maven file is shown below for reference.
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-asdevopsbly-plugin</artifactId>
+                <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
                     <finalName>devopsethods</finalName>
@@ -200,11 +200,11 @@ The complete Maven file is shown below for reference.
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
-                    <appendAsdevopsblyId>false</appendAsdevopsblyId>
+                    <appendassemblyId>false</appendassemblyId>
                 </configuration>
                 <executions>
                     <execution>
-                        <id>make-asdevopsbly</id>
+                        <id>make-assembly</id>
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
@@ -407,7 +407,7 @@ Now add the following to our `<dependencies>` section:
 </dependency>
 ```
 
-We also need to change how Maven packages our application.  Change the `<artifactId>maven-asdevopsbly-plugin</artifactId>` section in the `<plugins>` section to:
+We also need to change how Maven packages our application.  Change the `<artifactId>maven-assembly-plugin</artifactId>` section in the `<plugins>` section to:
 
 ```xml
 <plugin>
@@ -419,7 +419,7 @@ We also need to change how Maven packages our application.  Change the `<artifac
   </configuration>
   <executions>
       <execution>
-          <id>make-asdevopsbly</id>
+          <id>make-assembly</id>
           <phase>package</phase>
           <goals>
               <goal>repackage</goal>

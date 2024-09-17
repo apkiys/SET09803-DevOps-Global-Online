@@ -107,12 +107,12 @@ Modify the main method to use command line parameters, if supplied, or to defaul
 
 At the start of the project we built a JAR file with the version number and `jar-with-dependencies` added to the name.  This has slowly become problematic with the number of files where our version number is provided.  Therefore, we will update the `pom.xml` file to produce a JAR file called `devopsethods`.
 
-The section we have to update is in the `<build><plugins>` section for the `maven-asdevopsbly-plugin`.  The updated version is below:
+The section we have to update is in the `<build><plugins>` section for the `maven-assembly-plugin`.  The updated version is below:
 
 ```xml
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-asdevopsbly-plugin</artifactId>
+    <artifactId>maven-assembly-plugin</artifactId>
     <version>3.3.0</version>
     <configuration>
         <finalName>devopsethods</finalName>
@@ -124,11 +124,11 @@ The section we have to update is in the `<build><plugins>` section for the `mave
         <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>
         </descriptorRefs>
-        <appendAsdevopsblyId>false</appendAsdevopsblyId>
+        <appendassemblyId>false</appendassemblyId>
     </configuration>
     <executions>
         <execution>
-            <id>make-asdevopsbly</id>
+            <id>make-assembly</id>
             <phase>package</phase>
             <goals>
                 <goal>single</goal>
@@ -138,7 +138,7 @@ The section we have to update is in the `<build><plugins>` section for the `mave
 </plugin>
 ```
 
-We have set `<finalName>` and stated we do not want the ID attached (`<appendAsdevopsblyId>` is set to `false`).  Our Maven build will now produce a file called `devopsethods.jar`.
+We have set `<finalName>` and stated we do not want the ID attached (`<appendassemblyId>` is set to `false`).  Our Maven build will now produce a file called `devopsethods.jar`.
 
 #### Updating `Dockerfile` for Application
 

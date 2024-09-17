@@ -446,7 +446,7 @@ First we must update our `pom.xml` file.  Add the following below the `dependenc
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-asdevopsbly-plugin</artifactId>
+                <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
                     <archive>
@@ -460,7 +460,7 @@ First we must update our `pom.xml` file.  Add the following below the `dependenc
                 </configuration>
                 <executions>
                     <execution>
-                        <id>make-asdevopsbly</id>
+                        <id>make-assembly</id>
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
