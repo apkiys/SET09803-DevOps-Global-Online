@@ -256,7 +256,7 @@ jobs:
       - name: Package and Run docker compose
         run: |
           mvn package -DskipTests
-          docker-compose up --abort-on-container-exit
+          docker compose up --abort-on-container-exit
 
 ```
 
@@ -374,7 +374,7 @@ jobs:
       - name: Package and Run docker compose
         run: |
           mvn package -DskipTests
-          docker-compose up --abort-on-container-exit
+          docker compose up --abort-on-container-exit
 
 ```
 
@@ -477,7 +477,7 @@ jobs:
           flags: Integration Tests # optional
           verbose: true # optional (default = false)
   build:
-    name: Build and Start Using docker-compose
+    name: Build and Start Using docker compose
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -492,7 +492,7 @@ jobs:
       - name: Package and Run docker compose
         run: |
           mvn package -DskipTests
-          docker-compose up --abort-on-container-exit
+          docker compose up --abort-on-container-exit
 
 ```
 

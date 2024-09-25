@@ -515,7 +515,7 @@ jobs:
       - name: Package and Run docker compose
         run: |
           mvn package -DskipTests
-          docker-compose up --abort-on-container-exit
+          docker compose up --abort-on-container-exit
 
 
 ```
@@ -532,7 +532,7 @@ There are two commands:
 
  ```run: |
           mvn package -DskipTests
-          docker-compose up --abort-on-container-exit
+          docker compose up --abort-on-container-exit
  ```
  The first command packages our jar without running the Unit Tests (In maven all commands above a stage are executed so mvn package runs clean, validate compile and test before packaging)
 
