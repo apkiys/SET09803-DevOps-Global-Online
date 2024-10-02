@@ -115,7 +115,7 @@ The section we have to update is in the `<build><plugins>` section for the `mave
     <artifactId>maven-assembly-plugin</artifactId>
     <version>3.3.0</version>
     <configuration>
-        <finalName>devopsethods</finalName>
+        <finalName>devops</finalName>
         <archive>
             <manifest>
                 <mainClass>com.napier.devops.App</mainClass>
@@ -138,7 +138,7 @@ The section we have to update is in the `<build><plugins>` section for the `mave
 </plugin>
 ```
 
-We have set `<finalName>` and stated we do not want the ID attached (`<appendassemblyId>` is set to `false`).  Our Maven build will now produce a file called `devopsethods.jar`.
+We have set `<finalName>` and stated we do not want the ID attached (`<appendassemblyId>` is set to `false`).  Our Maven build will now produce a file called `devops.jar`.
 
 #### Updating `Dockerfile` for Application
 
@@ -148,7 +148,7 @@ Now we need to update the `Dockerfile` for the application to use the new JAR fi
 FROM openjdk:latest
 COPY ./target/devopsethods.jar /tmp
 WORKDIR /tmp
-ENTRYPOINT ["java", "-jar", "devopsethods.jar", "db:3306", "30000"]
+ENTRYPOINT ["java", "-jar", "devops.jar", "db:3306", "30000"]
 ```
 
 
@@ -177,10 +177,7 @@ services:
 
 The last line tells docker to make port 3306 available on our local machine on port 33060
 
-Delete your old containers and images and restart the database from the docker compose file using the arrow at line 8 below.
-
-
-![Start Database](img/dbstart.png)
+Delete your old containers and images and restart the database from the docker compose file using the arrow at line 8 
 
 You can leave the database running to save having to rebuild each time you want to connect. 
 
@@ -228,7 +225,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Set up JDK 11
@@ -244,11 +241,11 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Set up JDK 11
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -324,7 +321,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Set up JDK 11
@@ -340,11 +337,11 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Set up JDK 11
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -362,7 +359,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Set up JDK 11
@@ -436,7 +433,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Set up JDK 11
@@ -452,7 +449,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Set up JDK 11
@@ -480,7 +477,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Set up JDK 11
