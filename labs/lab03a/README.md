@@ -150,7 +150,7 @@ Next we need a Dockerfile to run a MySQL database instance with the given files.
 
 ```dockerfile
 # Use the latest MySQL image
-FROM mysql
+FROM mysql/mysql-server:latest
 # Set the working directory
 WORKDIR /tmp
 # Copy all the files to the working directory of the container
@@ -208,6 +208,8 @@ services:
   db:
     build: db/.
     restart: always
+    ports:
+      - "33060:3306"
 ```
 
 When running Docker from the command line, we use `docker-compose up` to build and run a composed service.  IntelliJ understands Docker compose files, so we don't have to worry.  We will modify our GitHub Actions file.
@@ -315,11 +317,11 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Set up JDK 11
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           java-version: '11'
           distribution: 'adopt'
