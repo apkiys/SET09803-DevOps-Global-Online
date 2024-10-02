@@ -79,10 +79,10 @@ For reference, your `dependencies` section should look as follows:
 
 ```xml
 <dependencies>
-    <dependency>
+     <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
-        <version>5.1.44</version>
+        <version>8.0.33</version>
     </dependency>
 
     <dependency>
