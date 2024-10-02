@@ -168,8 +168,7 @@ services:
 
   # db is is db folder
   db:
-    build: db/.
-    command: --default-authentication-plugin=mysql_native_password
+    build: db/.    
     restart: always
     ports:
       - "33060:3306"
